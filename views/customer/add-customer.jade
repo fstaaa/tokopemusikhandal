@@ -1,0 +1,46 @@
+extends ../layout/base
+block content
+    section.content-header
+
+            .box-body.container.mt-3
+                h1 Tambah Alat Musik
+                form(role='form',method='post' action='/customers/add' enctype="multipart/form-data")
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group.mt-3
+                                    label
+                                        | Nama Alat Musik
+                                    input(type='text',value='#{name}',name='name',placeholder='Tambah Alat Musik', autofocus).form-control
+                                .form-group.mt-3
+                                    label
+                                        | Deskripsi
+                                    input(type='text',name='address',placeholder='Tambah Deskripsi').form-control
+                                .form-group.mt-3
+                                    label
+                                        | Harga
+                                    input(type='text',value='#{email}',name='email',placeholder='Tambah Harga').form-control
+                                .form-group.mt-3
+                                    label
+                                        | Stock
+                                    input(type='text',name='phone',placeholder='Tambah Stock').form-control
+                                .form-group.my-3
+                                      label
+                                        | Gambar Alat Musik
+                                    input(type='file',name='gambar',placeholder='Masukan Gambar', required).form-control
+                                .box-footer
+
+                                button(type='submit').btn.btn-success.mt-3
+                                    | Submit
+
+                                a(href='/customers').btn.btn-success.pull-right.ms-3.mt-3
+                                    | Back
